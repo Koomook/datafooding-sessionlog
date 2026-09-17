@@ -36,3 +36,11 @@ Evidence receipts and observed limitations will be appended as these execute.
 Check out the exact commits in [source-audit.md](source-audit.md). Install the SDK's runtime dependencies in a disposable environment, then run `scripts/probe_upstream.py --sources /path/to/checkouts --output /private/new-directory`. This script writes synthetic exports only. For OpenClaw, use Bun and Zod 4.3.6: `bun scripts/probe_openclaw.ts /path/to/openclaw /private/new-directory/openclaw.jsonl /path/to/zod/index.js`. The probe resolves one unbuilt upstream source package through Bun, then executes the original classifier unchanged.
 
 No LLM was used by the converter or these probes. The proposed LLM segmentation/grader study remains unexecuted; it is specified in [limitations.md](limitations.md).
+
+## 2026-09-17 — published release
+
+**OBSERVED:** Release commit `cc15a674f28055648e3e217c73b4454fda15460a` passed all four macOS/Linux × Python 3.11/3.13 [CI jobs](https://github.com/Koomook/datafooding-sessionlog/actions/runs/35178792097). The public Git tag installed with `uv tool install` and the installed executable passed a synthetic Codex round trip. Wheel, source archive, and SHA-256 checksums are attached to [v0.1.0](https://github.com/Koomook/datafooding-sessionlog/releases/tag/v0.1.0).
+
+The [English](https://datafooding.ai/sessionlog/) and [Korean](https://datafooding.ai/ko/sessionlog/) product pages are live. Desktop/mobile browser review, native-format tab changes, and installation-command copy passed with no observed console errors. The website build, typecheck, and 41 existing regression tests passed. All 63 pre-existing slide/deck assets in the deployment bundle were byte-identical to the production base.
+
+The landing implementation used a real start capture before edits and a linked end capture afterward: 226 initial files, 231 final files, and two passing checks whose state fingerprints matched the final snapshot. Evidence payloads remain outside Git. This is an executed capture workflow, not a reconstructed initial state.
