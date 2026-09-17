@@ -2,6 +2,8 @@
 
 One deterministic, reversible record for agent sessions.
 
+[Product page](https://datafooding.ai/sessionlog/) · [한국어](https://datafooding.ai/ko/sessionlog/) · [Release](https://github.com/Koomook/datafooding-sessionlog/releases/tag/v0.1.0)
+
 We want the lessons of real agent work to remain useful when models and harnesses change. The failures a company has already found should become repeatable evaluations instead of disappearing into a conversation archive. Sessionlog is the first step: preserve requests, actions, observations, and before/after evidence in one inspectable format. A transcript alone is not an RL environment.
 
 **macOS first.** Claude Code, Codex, OpenClaw transcript exports, and Hermes session exports share one `datafooding.sessionlog/v1` contract. The converter runs locally, uses no LLM, and makes no network requests.
@@ -9,7 +11,7 @@ We want the lessons of real agent work to remain useful when models and harnesse
 ## Install
 
 ```sh
-uv tool install git+https://github.com/Koomook/datafooding-sessionlog.git
+uv tool install git+https://github.com/Koomook/datafooding-sessionlog.git@v0.1.0
 sessionlog --help
 ```
 
