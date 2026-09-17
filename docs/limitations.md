@@ -26,4 +26,3 @@ Start with a local repository task: restore selected source and dependencies, ex
 - Raw SQLite files, compressed Codex archives, external media, and remote stores are not accepted as transcript inputs. Use the producer's export first. State capture's SQLite option is evidence capture, not a harness transcript importer.
 - Cross-harness exports cannot recreate native tool implementations, permissions, context compaction, memory, or execution state. Parser acceptance is not continuation evidence.
 - Windows is untested and not a supported platform. Linux CI tests portability, not every native desktop harness.
-

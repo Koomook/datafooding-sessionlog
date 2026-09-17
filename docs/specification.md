@@ -37,4 +37,3 @@ No current time enters canonical state. Optional observation time is supplied ex
 ## Rights
 
 Access, operations, evaluation, training, derivatives, resale, export, retention, revocation, and deletion are separate `unknown` values by default. Normalization grants none of them. A permission receipt belongs in an independently reviewed layer; do not label a normalized archive as training-authorized. No real payload is included in this repository.
-

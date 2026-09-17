@@ -16,4 +16,3 @@ The founder directed this research to local `content/` manuscripts about Harvey'
 ## Audit method
 
 Read the actual record definitions and persistence/export/reader functions before implementing each adapter. Record unknown semantics as such. Native source restoration is stronger than parse success for byte preservation, and weaker than a live continuation test for behavioral compatibility. The test ledger keeps those claims separate.
-

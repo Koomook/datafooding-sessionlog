@@ -11,4 +11,3 @@ This file records executed checks separately from planned work. Counts and recei
 5. CI on macOS and Linux; public installation smoke test; deployed product route readback.
 
 Evidence receipts and observed limitations will be appended as these execute.
-

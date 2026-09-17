@@ -64,4 +64,3 @@ uv run ruff check .
 ```
 
 Fixtures are synthetic. Private-log experiments publish aggregate evidence only. CI runs the contract tests on macOS and Linux; Windows path and capture behavior are not a supported claim.
-
