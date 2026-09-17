@@ -1,0 +1,1 @@
+{"claude_official_reader":{"chain_entries":4,"passed":true,"visible_messages":4},"commits":{"claude-agent-sdk-python":"9d398b6b7ed8a1bf9527c8939f75a8abfa6f165b","hermes-agent":"6005aa1fd9aac8b1024ace50fec8cd1c85a04bae"},"hermes_official_export_renderer":{"conversation_items":4,"passed":true},"live_continuation":"not_tested","synthetic_only":true}

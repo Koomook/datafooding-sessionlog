@@ -34,6 +34,8 @@ A hash inventory can detect drift; it cannot restore contents. `--include-conten
 
 No current time enters canonical state. Optional observation time is supplied explicitly with `--at`. Host versions and command outputs are observed inputs, so they can legitimately change the snapshot. `state_sha256` covers the captured state before verification metadata; end snapshots link start by digest. Capture detects in-flight selected-file/Git changes and fails rather than claiming an atomic full-machine snapshot.
 
+Each check records state fingerprints before and after execution. `valid_for_final_state` is true only if both match the final capture. A later mutation can invalidate an earlier passing check; the CLI preserves that evidence and returns exit code 3. Content-bearing Git patches follow the same file exclusions as the inventory.
+
 ## Rights
 
 Access, operations, evaluation, training, derivatives, resale, export, retention, revocation, and deletion are separate `unknown` values by default. Normalization grants none of them. A permission receipt belongs in an independently reviewed layer; do not label a normalized archive as training-authorized. No real payload is included in this repository.

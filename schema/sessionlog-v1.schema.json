@@ -1,0 +1,230 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://datafooding.ai/sessionlog/schema/v1",
+  "title": "datafooding.sessionlog/v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "adapter_version",
+    "preserve_invalid",
+    "sources",
+    "events",
+    "diagnostics",
+    "rights"
+  ],
+  "properties": {
+    "schema": {
+      "const": "datafooding.sessionlog/v1"
+    },
+    "adapter_version": {
+      "const": "0.1.0"
+    },
+    "preserve_invalid": {
+      "type": "boolean"
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "index",
+          "harness",
+          "sha256",
+          "byte_length",
+          "base64"
+        ],
+        "properties": {
+          "index": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "harness": {
+            "enum": [
+              "claude-code",
+              "codex",
+              "openclaw",
+              "hermes",
+              "state"
+            ]
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "byte_length": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "base64": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "ref",
+          "session_id",
+          "kind",
+          "native"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "ref": {
+            "type": "object",
+            "required": [
+              "source",
+              "record"
+            ],
+            "properties": {
+              "source": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "record": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "message": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": false
+          },
+          "kind": {
+            "enum": [
+              "message",
+              "control",
+              "opaque",
+              "state"
+            ]
+          },
+          "native": {
+            "type": "object"
+          },
+          "blocks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "kind"
+              ],
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "text",
+                    "reasoning",
+                    "tool_call",
+                    "tool_result",
+                    "media",
+                    "opaque"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "message"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "role",
+                "authorship",
+                "blocks"
+              ],
+              "properties": {
+                "role": {
+                  "type": "string"
+                },
+                "authorship": {
+                  "enum": [
+                    "unverified",
+                    "harness",
+                    "model",
+                    "tool"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "code"
+        ]
+      }
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "access",
+        "operations",
+        "evaluation",
+        "training",
+        "derivative",
+        "resale",
+        "export",
+        "retention",
+        "revocation",
+        "deletion"
+      ],
+      "properties": {
+        "access": {
+          "const": "unknown"
+        },
+        "operations": {
+          "const": "unknown"
+        },
+        "evaluation": {
+          "const": "unknown"
+        },
+        "training": {
+          "const": "unknown"
+        },
+        "derivative": {
+          "const": "unknown"
+        },
+        "resale": {
+          "const": "unknown"
+        },
+        "export": {
+          "const": "unknown"
+        },
+        "retention": {
+          "const": "unknown"
+        },
+        "revocation": {
+          "const": "unknown"
+        },
+        "deletion": {
+          "const": "unknown"
+        }
+      }
+    }
+  }
+}

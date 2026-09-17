@@ -1,0 +1,4 @@
+interface:
+  display_name: "Session State Capture"
+  short_description: "Record deterministic before and after workspace evidence"
+  default_prompt: "Use $session-state-capture to preserve the starting state and final verification evidence for this task."
